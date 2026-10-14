@@ -1,0 +1,48 @@
+UNIVERSIDAD LAICA ELOY ALFARO DE MANABÍ
+FACULTAD DE CIENCIAS DE LA VIDA Y TECNOLOGÍAS
+CARRERA DE INGENIERÍA DE SOFTWARE
+ASIGNATURA: APLICACIONES MÓVILES NATIVAS
+
+ACTIVIDAD:
+PEA: ViewModel en DessertClicker
+(Codelabs: Stages of the Activity Lifecycle & Practice: Add a ViewModel to Dessert Clicker)
+
+ESTUDIANTE: Jhonny Alexander Cedeño Muentes
+FECHA: Miércoles, 14 de Octubre de 2026
+
+================================================================================
+1. URL DEL REPOSITORIO GIT PÚBLICO
+================================================================================
+Repositorio en GitHub:
+https://github.com/JhonnyCCM/DessertClicker
+
+(Enlace clonación: https://github.com/JhonnyCCM/DessertClicker.git)
+
+================================================================================
+2. RESUMEN DE LA IMPLEMENTACIÓN TÉCNICA
+================================================================================
+1. Codelab 1 - Stages of the Activity Lifecycle:
+   * Sobrescritura instrumentada con Log.d(TAG, ...) en todos los callbacks del ciclo de vida:
+     - onCreate(), onStart(), onResume(), onPause(), onStop(), onDestroy(), onRestart().
+   * Verificación en Logcat de los estados del ciclo de vida durante el inicio, cambio a segundo plano
+     y recreación ante cambios de configuración.
+
+2. Codelab 2 - Practice: Add a ViewModel to Dessert Clicker:
+   * Dependencia integrada: androidx.lifecycle:lifecycle-viewmodel-compose.
+   * Creación de la data class 'DessertUiState' para modelar el estado inmutable de la pantalla:
+     - currentDessertIndex, dessertsSold, revenue, currentDessertPrice, currentDessertImageId.
+   * Creación de la clase 'DessertViewModel' que extiende de ViewModel:
+     - Estado encapsulado mediante MutableStateFlow y expuesto mediante StateFlow (asStateFlow()).
+     - Lógica de negocio (onDessertClicked, determineDessertIndex) totalmente abstraída de la vista.
+   * Refactorización de MainActivity:
+     - Observación del estado mediante collectAsState().
+     - Recomposición reactiva y arquitectura UDF (Unidirectional Data Flow).
+     - Persistencia automática del estado tras la rotación de pantalla gracias al ViewModel.
+
+================================================================================
+3. CAPTURAS DE PANTALLA ADJUNTAS
+================================================================================
+- 01_initial_state.png: Pantalla inicial con Cupcake (Ingresos: $0, Postres vendidos: 0).
+- 02_dessert_clicked_donut.png: Transición a Donut tras superar producción (Ingresos: $35, Vendidos: 6).
+- 03_dessert_clicked_eclair.png: Transición a Éclair (Ingresos: $215, Vendidos: 22).
+- 04_landscape_retained_state.png: Prueba de rotación a horizontal demostrando retención de estado sin reinicio a cero.
