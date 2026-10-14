@@ -7,7 +7,7 @@ ACTIVIDAD:
 PEA: ViewModel en DessertClicker
 (Codelabs: Stages of the Activity Lifecycle & Practice: Add a ViewModel to Dessert Clicker)
 
-ESTUDIANTE: Jhonny Alexander Cedeño Muentes
+ESTUDIANTE: Jhonny Castillo Mero
 FECHA: Miércoles, 14 de Octubre de 2026
 
 ================================================================================
